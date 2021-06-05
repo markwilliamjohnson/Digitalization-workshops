@@ -7,7 +7,7 @@ logo: download (1).jpg
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: 'off'
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -32,3 +32,4 @@ html:
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
+  path_to_book: /

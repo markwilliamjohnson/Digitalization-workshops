@@ -59,7 +59,7 @@ print ("hello world")
 # Basically, you need to run the code below, and ensure that the pathname matches the name of the data file you have uploaded
 # 
 
-# In[ ]:
+# In[2]:
 
 
 import pandas as pd
@@ -106,11 +106,75 @@ print (mydata_selection)
 
 # This will display just the data where the username column contains the name specified as "a_user" 
 
+# In[29]:
+
+
+import graphviz 
+
+g = graphviz.Digraph('G', filename='g_c_n.gv')
+# g.attr(bgcolor='purple:pink', label='agraph', fontcolor='white')
+g.node ("A","test", shape="square")
+
+with g.subgraph(name='cluster1') as c:
+    c.attr(fillcolor='blue:cyan', label='identity', fontcolor='white',
+           style='filled', gradientangle='270')
+    c.attr('node', shape='box', fillcolor='red:yellow',
+           style='filled', gradientangle='90')
+
+    c.node ("asdf")
+g.edge ("A", "asdf")
+g.edge ("asdf", "A")
+
+g.node ("A1","test1", shape="square")
+
+with g.subgraph(name='cluster2') as c:
+    c.attr(fillcolor='blue:cyan', label='identity', fontcolor='white',
+           style='filled', gradientangle='270')
+    c.attr('node', shape='box', fillcolor='red:yellow',
+           style='filled', gradientangle='90')
+
+    c.node ("asdf1")
+g.edge ("A1", "asdf1")
+g.edge ("asdf1", "A1")
+# g.edge ("A", "A1")
+# g.edge ("A1", "A")
+
+g
+
+
 # # Doing more complex things
 # 
 # Obviously, simple selection can be done in Excel, but Python allows us to take deeper control of the data, and reformat it in various ways.
 # 
 # At the simplest level, you might want to export a new spreadsheet with data for a particular user. 
+# 
+
+# In[1]:
+
+
+import graphviz
+
+dot = graphviz.Digraph(comment='The Round Table')
+
+
+dot.node('A', 'Study Board', shape='doublecircle')
+dot.node('B', 'Tech \nenthusiast', shape="doublecircle")
+dot.node('L', 'Employability')
+dot.node("I", "innovative law")
+dot.node("f", "Law firms")
+
+dot.edge ("A", "B", label="+")
+dot.edge ("B","A" ,label="+")
+dot.edge('B', 'L', label="-")
+dot.edge ("L", "A", label="+")
+dot.edge ("I", "f", "+")
+dot.edge ("f", "A", "+")
+dot.edge ("I", "A", "+")
+dot.edge ("I", "B", "+")
+
+dot
+
+
 # 
 # # Exporting data into a new spreadsheet
 
@@ -121,7 +185,7 @@ import pandas as pd
 
 mydata = pd.load_excel ("mydatafile.xlsx", encoding="latin1")
 
-mydata_selection = mydata[["username"] == "a_user"]
+mydata_selection = mydata[mydata["username"] == "a_user"]
 
 print (mydata_selection)
 

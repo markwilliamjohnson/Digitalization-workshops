@@ -305,7 +305,115 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello, world, from node 2
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ConnectionRefusedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">_connect</span><span class="nt">(resolved_address, timeout, keep_alive)</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>         <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;[#0000]  C: &lt;OPEN&gt; </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">resolved_address</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">935</span>         <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">resolved_address</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>         <span class="n">s</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="ne">ConnectionRefusedError</span>: [WinError 10061] No connection could be made because the target machine actively refused it
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ServiceUnavailable</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="n">aeed0c60f37</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> 
+<span class="g g-Whitespace">     </span><span class="mi">23</span> 
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">greeter</span> <span class="o">=</span> <span class="n">HelloWorldExample</span><span class="p">(</span><span class="s2">&quot;bolt://localhost:7687&quot;</span><span class="p">,</span> <span class="s2">&quot;neo4j&quot;</span><span class="p">,</span> <span class="s2">&quot;bollocks&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">greeter</span><span class="o">.</span><span class="n">print_greeting</span><span class="p">(</span><span class="s2">&quot;hello, world&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">greeter</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">&lt;ipython-input-1-4aeed0c60f37&gt;</span> in <span class="ni">__init__</span><span class="nt">(self, uri, user, password)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">GraphDatabase</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\__init__.py</span> in <span class="ni">driver</span><span class="nt">(cls, uri, auth, **config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> 
+<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="n">driver_type</span> <span class="o">==</span> <span class="n">DRIVER_BOLT</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">bolt_driver</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">elif</span> <span class="n">driver_type</span> <span class="o">==</span> <span class="n">DRIVER_NEO4j</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="n">routing_context</span> <span class="o">=</span> <span class="n">parse_routing_context</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\__init__.py</span> in <span class="ni">bolt_driver</span><span class="nt">(cls, target, auth, **config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span> 
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">194</span>             <span class="k">return</span> <span class="n">BoltDriver</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>         <span class="k">except</span> <span class="p">(</span><span class="n">BoltHandshakeError</span><span class="p">,</span> <span class="n">BoltSecurityError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="kn">from</span> <span class="nn">neo4j.exceptions</span> <span class="kn">import</span> <span class="n">ServiceUnavailable</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\__init__.py</span> in <span class="ni">open</span><span class="nt">(cls, target, auth, **config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span>         <span class="n">address</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">parse_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span>         <span class="n">pool_config</span><span class="p">,</span> <span class="n">default_workspace_config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">consume_chain</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">PoolConfig</span><span class="p">,</span> <span class="n">WorkspaceConfig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">357</span>         <span class="n">pool</span> <span class="o">=</span> <span class="n">BoltPool</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="n">pool_config</span><span class="o">=</span><span class="n">pool_config</span><span class="p">,</span> <span class="n">workspace_config</span><span class="o">=</span><span class="n">default_workspace_config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span>         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">default_workspace_config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span> 
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">open</span><span class="nt">(cls, address, auth, pool_config, workspace_config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> 
+<span class="g g-Whitespace">    </span><span class="mi">509</span>         <span class="n">pool</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">opener</span><span class="p">,</span> <span class="n">pool_config</span><span class="p">,</span> <span class="n">workspace_config</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">510</span>         <span class="n">seeds</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pool_config</span><span class="o">.</span><span class="n">init_size</span><span class="p">)]</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>         <span class="n">pool</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="o">*</span><span class="n">seeds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="k">return</span> <span class="n">pool</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> 
+<span class="g g-Whitespace">    </span><span class="mi">509</span>         <span class="n">pool</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">opener</span><span class="p">,</span> <span class="n">pool_config</span><span class="p">,</span> <span class="n">workspace_config</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">510</span>         <span class="n">seeds</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pool_config</span><span class="o">.</span><span class="n">init_size</span><span class="p">)]</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>         <span class="n">pool</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="o">*</span><span class="n">seeds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="k">return</span> <span class="n">pool</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">acquire</span><span class="nt">(self, access_mode, timeout, database)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>     <span class="k">def</span> <span class="nf">acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">access_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span>         <span class="c1"># The access_mode and database is not needed for a direct connection, its just there for consistency.</span>
+<span class="ne">--&gt; </span><span class="mi">523</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span> 
+<span class="g g-Whitespace">    </span><span class="mi">525</span> 
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">_acquire</span><span class="nt">(self, address, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span>                     <span class="n">timeout</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool_config</span><span class="o">.</span><span class="n">connection_timeout</span><span class="p">,</span> <span class="n">time_remaining</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>                     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">395</span>                         <span class="n">connection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>                     <span class="k">except</span> <span class="n">ServiceUnavailable</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">opener</span><span class="nt">(addr, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> 
+<span class="g g-Whitespace">    </span><span class="mi">506</span>         <span class="k">def</span> <span class="nf">opener</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">507</span>             <span class="k">return</span> <span class="n">Bolt</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">pool_config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> 
+<span class="g g-Whitespace">    </span><span class="mi">509</span>         <span class="n">pool</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">opener</span><span class="p">,</span> <span class="n">pool_config</span><span class="p">,</span> <span class="n">workspace_config</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">open</span><span class="nt">(cls, address, auth, timeout, **pool_config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>             <span class="n">custom_resolver</span><span class="o">=</span><span class="n">pool_config</span><span class="o">.</span><span class="n">resolver</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>             <span class="n">ssl_context</span><span class="o">=</span><span class="n">pool_config</span><span class="o">.</span><span class="n">get_ssl_context</span><span class="p">(),</span>
+<span class="ne">--&gt; </span><span class="mi">195</span>             <span class="n">keep_alive</span><span class="o">=</span><span class="n">pool_config</span><span class="o">.</span><span class="n">keep_alive</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> 
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">connect</span><span class="nt">(address, timeout, custom_resolver, ssl_context, keep_alive)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1053</span>         <span class="k">raise</span> <span class="n">ServiceUnavailable</span><span class="p">(</span><span class="s2">&quot;Failed to resolve addresses for </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">address</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1055</span>         <span class="k">raise</span> <span class="n">last_error</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">connect</span><span class="nt">(address, timeout, custom_resolver, ssl_context, keep_alive)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span>             <span class="n">host</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">1045</span>             <span class="n">s</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">resolved_address</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">keep_alive</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span>             <span class="n">s</span> <span class="o">=</span> <span class="n">_secure</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">ssl_context</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1047</span>             <span class="k">return</span> <span class="n">_handshake</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\neo4j\io\__init__.py</span> in <span class="ni">_connect</span><span class="nt">(resolved_address, timeout, keep_alive)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span>         <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;[#0000]  C: &lt;CLOSE&gt; </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">resolved_address</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span>         <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">949</span>         <span class="k">raise</span> <span class="n">ServiceUnavailable</span><span class="p">(</span><span class="s2">&quot;Failed to establish connection to </span><span class="si">{!r}</span><span class="s2"> (reason </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resolved_address</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">950</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">951</span>         <span class="k">return</span> <span class="n">s</span>
+
+<span class="ne">ServiceUnavailable</span>: Failed to establish connection to IPv4Address((&#39;127.0.0.1&#39;, 7687)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
 </pre></div>
 </div>
 </div>

@@ -14,9 +14,9 @@
 # ## What is happening with digitization? 
 # Technology is vastly increasing the possible choices we have to organise our societies and education. In this session you will explore 4 value statements concerning the future of education (these are drawn from the https://www.nearfutureteaching.ed.ac.uk/ project). 
 # 
-# Behind each possibily lies a set of values we might have about what matters in education.
+# Behind each technological possibily lies a set of values with regards to what matters in education.
 # 
-# We want to find out your views your values in education. 
+# We want to find out your views and your values in education. 
 # 
 # 
 
@@ -32,13 +32,17 @@
 # <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=kX-So6HNlkaviYyfHO_6kR6Y9MhHDyhJirqDyHYLxxFUMEhVRjg4NVhENFVCUUtDWjdHQ0RDSkQ1Vi4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 # ### Scenario 1
-# <iframe width="560" height="315" src="./Value Card 1.pdf" title="Value card" frameborder="0" ></iframe>
+# <img src="./Value Card 1_Page_1.jpg" width=50%></td><td>
+# 
 
 # ### Scenario 2
-# <iframe width="560" height="315" src="./Value Card 2.pdf" title="Value card" frameborder="0" ></iframe>
+# <img src="./Value Card 2_Page_1.jpg" width=50%></td><td>
+# 
 
 # ### Scenario 3
-# <iframe width="560" height="315" src="./Value Card 3.pdf" title="Value card" frameborder="0" ></iframe>
+# <img src="./Value Card 3_Page_1.jpg" width=50%></td><td>
+#     
 
 # ### Scenario 4
-# <iframe width="560" height="315" src="./Value Card 4.pdf" title="Value card" frameborder="0" ></iframe>
+# <img src="./Value Card 4_Page_1.jpg" width=50%></td><td>
+#     

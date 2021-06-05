@@ -346,6 +346,25 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">d3defe88a5ae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">mydata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">load_excel</span> <span class="p">(</span><span class="s2">&quot;mydatafile.xlsx&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin1&quot;</span><span class="p">)</span>
+
+<span class="nn">~\Anaconda3\lib\site-packages\pandas\__init__.py</span> in <span class="ni">__getattr__</span><span class="nt">(name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>             <span class="k">return</span> <span class="n">_SparseArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span> 
+<span class="ne">--&gt; </span><span class="mi">262</span>         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;module &#39;pandas&#39; has no attribute &#39;</span><span class="si">{name}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> 
+<span class="g g-Whitespace">    </span><span class="mi">264</span> 
+
+<span class="ne">AttributeError</span>: module &#39;pandas&#39; has no attribute &#39;load_excel&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="viewing-the-imported-data">
@@ -385,11 +404,79 @@
 </div>
 </div>
 <p>This will display just the data where the username column contains the name specified as “a_user”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span> 
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;g_c_n.gv&#39;</span><span class="p">)</span>
+<span class="c1"># g.attr(bgcolor=&#39;purple:pink&#39;, label=&#39;agraph&#39;, fontcolor=&#39;white&#39;)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">node</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">g</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cluster1&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;blue:cyan&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;identity&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;filled&#39;</span><span class="p">,</span> <span class="n">gradientangle</span><span class="o">=</span><span class="s1">&#39;270&#39;</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;red:yellow&#39;</span><span class="p">,</span>
+           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;filled&#39;</span><span class="p">,</span> <span class="n">gradientangle</span><span class="o">=</span><span class="s1">&#39;90&#39;</span><span class="p">)</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="n">node</span> <span class="p">(</span><span class="s2">&quot;asdf&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;asdf&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;asdf&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">node</span> <span class="p">(</span><span class="s2">&quot;A1&quot;</span><span class="p">,</span><span class="s2">&quot;test1&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">g</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cluster2&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;blue:cyan&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;identity&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;filled&#39;</span><span class="p">,</span> <span class="n">gradientangle</span><span class="o">=</span><span class="s1">&#39;270&#39;</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;red:yellow&#39;</span><span class="p">,</span>
+           <span class="n">style</span><span class="o">=</span><span class="s1">&#39;filled&#39;</span><span class="p">,</span> <span class="n">gradientangle</span><span class="o">=</span><span class="s1">&#39;90&#39;</span><span class="p">)</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="n">node</span> <span class="p">(</span><span class="s2">&quot;asdf1&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;asdf1&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;asdf1&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">)</span>
+<span class="c1"># g.edge (&quot;A&quot;, &quot;A1&quot;)</span>
+<span class="c1"># g.edge (&quot;A1&quot;, &quot;A&quot;)</span>
+
+<span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ex4_17_0.svg" src="_images/ex4_17_0.svg" /></div>
+</div>
 </div>
 <div class="section" id="doing-more-complex-things">
 <h1>Doing more complex things<a class="headerlink" href="#doing-more-complex-things" title="Permalink to this headline">¶</a></h1>
 <p>Obviously, simple selection can be done in Excel, but Python allows us to take deeper control of the data, and reformat it in various ways.</p>
 <p>At the simplest level, you might want to export a new spreadsheet with data for a particular user.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+
+<span class="n">dot</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s1">&#39;The Round Table&#39;</span><span class="p">)</span>
+
+
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Study Board&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;doublecircle&#39;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;Tech </span><span class="se">\n</span><span class="s1">enthusiast&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;doublecircle&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;Employability&#39;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;innovative law&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;Law firms&quot;</span><span class="p">)</span>
+
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span> <span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">dot</span><span class="o">.</span><span class="n">edge</span> <span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">)</span>
+
+<span class="n">dot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ex4_19_0.svg" src="_images/ex4_19_0.svg" /></div>
+</div>
 </div>
 <div class="section" id="exporting-data-into-a-new-spreadsheet">
 <h1>Exporting data into a new spreadsheet<a class="headerlink" href="#exporting-data-into-a-new-spreadsheet" title="Permalink to this headline">¶</a></h1>
@@ -399,7 +486,7 @@
 
 <span class="n">mydata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">load_excel</span> <span class="p">(</span><span class="s2">&quot;mydatafile.xlsx&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin1&quot;</span><span class="p">)</span>
 
-<span class="n">mydata_selection</span> <span class="o">=</span> <span class="n">mydata</span><span class="p">[[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;a_user&quot;</span><span class="p">]</span>
+<span class="n">mydata_selection</span> <span class="o">=</span> <span class="n">mydata</span><span class="p">[</span><span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;a_user&quot;</span><span class="p">]</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">mydata_selection</span><span class="p">)</span>
 
